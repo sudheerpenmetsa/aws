@@ -55,7 +55,9 @@
     - Amazon gurantees 99.9999999% durability for S3 information.(11x9's).
 
 - S3 Storage class
+  
  ![](images/S3-1.jpg)
+ 
  ![](images/S3-Storageclass.jpg)
  
 - You are charged for S3 in the following ways:
