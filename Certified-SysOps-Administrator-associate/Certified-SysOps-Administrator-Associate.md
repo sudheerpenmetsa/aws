@@ -64,7 +64,7 @@
   :sparkles: :sparkles: CloudWatch can be used on premise - Not restricted to just AWS resources. Can be on premise too. Just need to download and install the SSM agent and Cloudwatch agent.
 
 ### Monitoring EBS
-  - EBS Different types of EBS storage;
+- EBS Different types of EBS storage;
      - General purpose (SSD) - gp2
      - Provisioned IOPS (SSD) - io1
      - Throughput Optimized (HDD) - st1
@@ -72,7 +72,7 @@
 
      ![compare volumetypes](volumetypes.jpg)
   
-  - Pre-Warming EBS Volumes: 
+- Pre-Warming EBS Volumes: 
     - New EBS volumes receive their maximum performance the moment that they are available and do not require initialization (formerly known as pre-warming). However, storage blocks on volumes that were restored from snapshots must be initialized(pulled down from amazon S3 and written to the volume) before you can access the block. This preliminary action takes time and can cause a significant increase in the latency of an I/O operation the first time each block is accesses. For most applications, amortizing this cost over the lifetime of the volume is acceptable. Performance is resotred after the data is accessed once.
     - You can avoid this performance hit in a production environment by reading from all of the blocks on your volume before you use it; this process is called intialization. For a new volume created from snapshot, you should read all the blocks that have data before using the volume.
 
@@ -88,12 +88,12 @@
 
 ### Monitoring ELB
   
-  - 3 different types of Elastic load balancers;
+- 3 different types of Elastic load balancers;
       - `Application load balancer`
          Choose an Application Load Balancer when you need a flexible feature set for your web applications with HTTP and HTTPS traffic. Operating at the request level, Application Load Balancers provide advanced routing and visibility features targeted at application architectures, including microservices and containers.  
       - `Network load balancer` Choose a Network Load Balancer when you need ultra-high performance, TLS offloading at scale, centralized certificate deployment, support for UDP, and static IP addresses for your application. Operating at the connection level, Network Load Balancers are capable of handling millions of requests per second securely while maintaining ultra-low latencies.
       - `Classic load balancer`
-  - 4 different ways to monitor your load balancers;
+- 4 different ways to monitor your load balancers;
       - `CloudWatch metrics`
           - Elastic Load balanceing publishes data points to Amazon CloudWatch for your load balancers and your targets. CloudWatch enables you to retrieve statistics about those data points as an ordered set of time-series data, known as metrics. Think of a metric as a variable to monitor, and the data points as the values of that variable overtime. For example, you can monitor the total number of healthy targets for a load balancer over a specified time period. Each data point has an associated time stamp and an optional unit of measurement.
       - `Access logs` 
@@ -101,7 +101,7 @@
           - Access logging is an optional feature of elastic load   balacing that is disabled by default. After you enable access logging for your load balancer, elastic load balacing captures the logs and stores them in the amazon S3 bucket that you specifiy as compresses files. you can disable access logging anytime.
           - Access Logs - **SUPER IMPORTANT**
           Access logs can store data where the EC2 instance has been deleted. For example say you have a fleet of EC2 instances behind an autoscaling group. For some reason your application has a lof of 5xx error which is only reported by your end customers a couple of days after the event. If you arent storing the web server logs anwhere persistent, it is still possible to trace these 5xxx errors using access logs which would be stored on S3.
-      - `Request tracing` You can use request tracing to track HTTP requests from clients to targets or other services. When the load balancer receives a request from a client, it adds or updates the X-Amzn-Trace-Id header before sending the request to the target. ANy services or applications between the load balancer and the target can also add or update this header.*Available for applications load balancer only*
+      - `Request tracing` You can use request tracing to track HTTP requests from clients to targets or other services. When the load balancer receives a request from a client, it adds or updates the X-Amzn-Trace-Id header before sending the request to the target. ANy services or applications between the load balancer and the target can also add or update this header.`*Available for applications load balancer only*`
   
       - `CloudTrail logs` You can use AWS CloudTrail to capture detailed information about the calls made to the elastic load balancing API and store them as log files in Amazon S3.You can use these CLoudTrail logs to determine which calls were made the source IP address where the call came from, who made the call, when the call was made, and so on.
 
@@ -110,20 +110,29 @@
      - CloudWatch monitors performance
      - CloudTrail monitors API calls in the AWS platform.(in other terms used for auditing)
 ### Monitoring Elasticache  
-  - Elasticache consists of two engines
+- Elasticache consists of two engines
      - Memcached
      - Redis 
 
-  - When it comes to monitoring our caching engines there are 4 important things to look at:
+- When it comes to monitoring our caching engines there are 4 important things to look at:
      - CPU Utilization
      - Swap Usage
      - Evictions
      - Concurrent Connections
 
-  - CPU Utilization:
+- CPU Utilization:
      - `Memcached`
          - Multi-threaded
          - Can handle loads of up to 90%. If it exceeds 90% add more nodes to the cluster.
      - `Redis`
          - Not Multi-threaded. To determine the point in which to scale, take 90 and divide by the number of cores.
          - For example, suppose you are using a cache.m1.xlarge node, which has four cores. In this case, the threshold for CPU utilization would be (90/4), or 22.5% 
+- Swap Usage:
+     - `What is Swap` : Swap is a space on a disk that is used when the amount of physical RAM memory is full. When a Linux system runs out of RAM, inactive pages are moved from the RAM to the `SWAP` space.
+     Put simply, swap usage is simply the amount of the swap file that is used. The swap file (or paging file) is the amount of disk storage space reserved on disk if your computer runs out of ram. `Typically the size of the swap file = the size of the RAM.` So if you have 4GB of RAM, you will have 1 4GB Swap file.
+     - `Memcached`
+        - Should be around 0 most of the time and should not exceed 50MB.
+        - If this exceeds 50MB you should increase the memcached_connections_overhead parameter.
+        - The memcached_connections_overhead defines the amount of memory to be reserved for memcached connections and other miscellaneous overhead.
+     - `Redis`
+        - No SwapUsage metric, instead use reserved-memory
