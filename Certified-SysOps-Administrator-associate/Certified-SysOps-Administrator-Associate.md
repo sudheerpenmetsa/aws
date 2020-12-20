@@ -46,8 +46,20 @@
      - Status Check
 
 
-  :sparkles: :sparkles: RAM utilization is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
+  :sparkles: :sparkles: RAM utilization 
+  It is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
 
   :sparkles: :sparkles: Metric Granularity
    - 1 minute for detailed monitoring
    - 5 minutes for standard monitoring
+  
+  :sparkles: :sparkles: CloudWatch can be used on premise - Not restricted to just AWS resources. Can be on premise too. Just need to download and install the SSM agent and Cloudwatch agent.
+
+  ### Monitoring EBS
+  - EBS Different types of EBS storage;
+     - General purpose (SSD) - gp2
+     - Provisioned IOPS (SSD) - io1
+     - Throughput Optimized (HDD) - st1
+     - Cold (HDD) - sc1
+
+![compare volumetypes](volumetypes.jpg)
