@@ -52,10 +52,10 @@
      - Status Check
 
 
-  :sparkles: :sparkles: RAM utilization 
+    :sparkles: :sparkles: RAM utilization 
   It is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
 
-  :sparkles: :sparkles: Metric Granularity
+    :sparkles: :sparkles: Metric Granularity
    - 1 minute for detailed monitoring
    - 5 minutes for standard monitoring
   
@@ -103,7 +103,7 @@
   
       - `CloudTrail logs` You can use AWS CloudTrail to capture detailed information about the calls made to the elastic load balancing API and store them as log files in Amazon S3.You can use these CLoudTrail logs to determine which calls were made the source IP address where the call came from, who made the call, when the call was made, and so on.
 
- :sparkles: :sparkles: **CloudWatch vs CloudTrail?**
+    :sparkles: :sparkles: **CloudWatch vs CloudTrail?**
     
      - CloudWatch monitors performance
      - CloudTrail monitors API calls in the AWS platform.(in other terms used for auditing)
