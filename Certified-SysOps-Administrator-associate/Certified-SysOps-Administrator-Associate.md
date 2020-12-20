@@ -14,5 +14,32 @@
 |**TOTAL**  |**100%** |
 
 ## Cloud Watch
+- A cloud watch is a monitroing service to monitor AWS resources,as well as well as applications that run on AWS.
 
-A cloud watch is a monitroing service to monitor AWS resources,as well as well as applications that run on AWS
+- CloudWatch can monitor things like:
+  - Compute
+     - Autoscaling groups
+     - Elastic Load Balancers
+     - Route53 Health Checks
+  - Storage and Content Delivery
+     - EBS Volumes
+     - Storage Gateways
+     - CloudFront
+  - Databases and Analytics
+     - DynamoDB
+     - Elasticache Nodes
+     - RDS Instances
+     - Elastic MapReduce Job Flows
+     - Redshift      
+
+  - Other
+     - SNS Topics
+     - SQS Queues
+     - Opsworks
+     - CloudWatch Logs
+     - Estimated charges on your AWS Bill 
+
+  :::info
+  EXAM Tip
+  RAM utilization is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
+  :::
