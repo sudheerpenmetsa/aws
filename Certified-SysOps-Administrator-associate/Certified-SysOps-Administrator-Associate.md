@@ -84,9 +84,9 @@
 
     :sparkles: :sparkles: Volume Queue Length = Number of read operations and write operation request waiting to be completed in a specific period of time.
 
-### Monitoring ELB
+  ### Monitoring ELB
   
- - 3 different types of Elastic load balancers;
+  - 3 different types of Elastic load balancers;
       - `Application load balancer`
          Choose an Application Load Balancer when you need a flexible feature set for your web applications with HTTP and HTTPS traffic. Operating at the request level, Application Load Balancers provide advanced routing and visibility features targeted at application architectures, including microservices and containers.  
       - `Network load balancer` Choose a Network Load Balancer when you need ultra-high performance, TLS offloading at scale, centralized certificate deployment, support for UDP, and static IP addresses for your application. Operating at the connection level, Network Load Balancers are capable of handling millions of requests per second securely while maintaining ultra-low latencies.
@@ -104,7 +104,7 @@
       - `CloudTrail logs` You can use AWS CloudTrail to capture detailed information about the calls made to the elastic load balancing API and store them as log files in Amazon S3.You can use these CLoudTrail logs to determine which calls were made the source IP address where the call came from, who made the call, when the call was made, and so on.
 
  :sparkles: :sparkles: **CloudWatch vs CloudTrail?**
-     
+    
      - CloudWatch monitors performance
      - CloudTrail monitors API calls in the AWS platform.(in other terms used for auditing)
    
