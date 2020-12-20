@@ -5,6 +5,8 @@
 
 [Monitoring the status of your volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html)
 
+[Monitoring use with Elasticache metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.html)
+
 
 | Objective | % of Examination | 
 | -------- | -------- | 
@@ -61,7 +63,7 @@
   
   :sparkles: :sparkles: CloudWatch can be used on premise - Not restricted to just AWS resources. Can be on premise too. Just need to download and install the SSM agent and Cloudwatch agent.
 
-  ### Monitoring EBS
+### Monitoring EBS
   - EBS Different types of EBS storage;
      - General purpose (SSD) - gp2
      - Provisioned IOPS (SSD) - io1
@@ -84,7 +86,7 @@
 
     :sparkles: :sparkles: Volume Queue Length = Number of read operations and write operation request waiting to be completed in a specific period of time.
 
-  ### Monitoring ELB
+### Monitoring ELB
   
   - 3 different types of Elastic load balancers;
       - `Application load balancer`
@@ -107,4 +109,21 @@
     
      - CloudWatch monitors performance
      - CloudTrail monitors API calls in the AWS platform.(in other terms used for auditing)
-   
+### Monitoring Elasticache  
+  - Elasticache consists of two engines
+     - Memcached
+     - Redis 
+
+  - When it comes to monitoring our caching engines there are 4 important things to look at:
+     - CPU Utilization
+     - Swap Usage
+     - Evictions
+     - Concurrent Connections
+
+  - CPU Utilization:
+     - `Memcached`
+         - Multi-threaded
+         - Can handle loads of up to 90%. If it exceeds 90% add more nodes to the cluster.
+     - `Redis`
+         - Not Multi-threaded. To determine the point in which to scale, take 90 and divide by the number of cores.
+         - For example, suppose you are using a cache.m1.xlarge node, which has four cores. In this case, the threshold for CPU utilization would be (90/4), or 22.5% 
