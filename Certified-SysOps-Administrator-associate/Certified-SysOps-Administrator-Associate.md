@@ -33,11 +33,21 @@
      - Redshift      
 
   - Other
-     - SNS Topics
-     - SQS Queues
+     - SNS(Simple Notification Service) Topics
+     - SQS(Simple Queue Service) Queues
      - Opsworks
      - CloudWatch Logs
      - Estimated charges on your AWS Bill 
 
-  :sparkles: RAM utilization is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
- 
+  - Host Level Metrics always consists of:
+     - CPU
+     - Network
+     - Disk
+     - Status Check
+
+
+  :sparkles: :sparkles: RAM utilization is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
+
+  :sparkles: :sparkles: Metric Granularity
+   - 1 minute for detailed monitoring
+   - 5 minutes for standard monitoring
