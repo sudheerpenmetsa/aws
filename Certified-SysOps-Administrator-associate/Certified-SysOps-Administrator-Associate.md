@@ -39,7 +39,6 @@
      - CloudWatch Logs
      - Estimated charges on your AWS Bill 
 
-  :::info
-  EXAM Tip
+  `  EXAM Tip:
   RAM utilization is a custom metric! By default EC2 monitoring is 5 minute intervals, unless you enable detailed monitoring which will then make it 1 minute intervals.
-  :::
+  `
