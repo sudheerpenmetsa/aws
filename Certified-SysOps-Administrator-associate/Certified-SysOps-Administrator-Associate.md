@@ -136,3 +136,21 @@
         - The memcached_connections_overhead defines the amount of memory to be reserved for memcached connections and other miscellaneous overhead.
      - `Redis`
         - No SwapUsage metric, instead use reserved-memory
+- Evictions:
+   - Think of evictions like tenants in an appartment building. There are a number of empty appartments that slowly fill up with tenants. Eventually the appartment block is full, however more tenants need to be added.
+   An eviction occurs when a new item is added and an old item must be removed due to lack of free space in the system.
+   - `Memcached`
+        - There is no recommended setting. Choose a threshold based off your application.
+        - Either scale Up (ie increase the memory of existing nodes) OR 
+        - Scale Out (add more ndoes) 
+   - `Redis`
+        - There is no recommended setting. Choose a threshold based off your application.
+        - Only Scale Out(add read replicas)  
+  
+   :sparkles: :sparkles: Exam TIP, differenct approaches between Memcached and Redis
+- Concurrent Connections:
+   -  Memcached & Redis
+        - There is no recommended setting. Choose a threshold based off your application.
+        - If there is a large and sustained spike in the number of concurrent connections this can either mean a large traffic spike OR your appliction is not releasing connections as it should be
+  
+   :sparkles: :sparkles: Remeber to set an alarm on the number of concurrent connections for elasticache.
