@@ -9,6 +9,8 @@
 
 [Monitoring use with Elasticache metrics](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheMetrics.html)
 
+[AWS Config FAQs](https://aws.amazon.com/config/faq/)
+
 
 | Objective | % of Examination | 
 | -------- | -------- | 
@@ -159,12 +161,97 @@
 
    :sparkles: :sparkles: `ClouWatch` dashboards are multi-region and can display any widget to any region. To add the widget, change to the region that you need and then add the widget to the dashboard.
 
-  ### AWS Organizations
+### AWS Organizations
   
-   - AWS Organizations allows you to manage multiple AWS accounts at once. With Organizations, you can create groups of accounts and then apply policies to those groups.
-   - Centrally manage policies across multiple AWS accounts.
-   - Control Access to AWS services using `Service Control Policies (SCP)`.
-   - Automate AWS account creation and management.
-   - Consolidate billing across multiple aws accounts.
+- AWS Organizations allows you to manage multiple AWS accounts at once. With Organizations, you can create groups of accounts and then apply policies to those groups.
+- Centrally manage policies across multiple AWS accounts.
+- Control Access to AWS services using `Service Control Policies (SCP)`.
+- Automate AWS account creation and management.
+- Consolidate billing across multiple aws accounts.
+  ![Service control policies work](organizations.jpg)
+
+### Tagging and Resource Groups
+- What are Tags?
+   - Key value pairs attached to AWS resources
+   - Metadata (data about data)
+   - Tags can sometimes be inherited
+      - Autoscaling, CloudFormation, and Elastic Beanstalk can create other resources.
+- What are resource groups?
+   - Resource groups make it easy to group your resources using the tags that are assigned to them. You can group resources that share one or more tags.
+   - Resource groups contain information such as;
+       - Region
+       - Name
+       - Health Checks
+   - Specific information
+       - For EC2 - Public and private IP addresses
+       - For ELB - Port configurations
+       - For RDS - Database engine etc 
+   - You can use resource groups with `AWS Systems Manager` to automate tasks.
   
-   ![Service control policies work](organizations.jpg)
+### AWS Cost Explorer and Cost Allocation Tags
+- Cost Explorer
+    Cost Explorer is a tool that enables you to view and anlyze your costs and usage. You can explore your usage and costs using the main graph, the Cost Explore cost and usage reports, or the cost explorer RI reports. You can view data for up to the last 13 months, forecast how much you're likely to spend for the next three months, and get recommendations for what reserved instances to purchase. You can use cost explore to identify areas that need further inquiry and see trends that you can use to understand your costs.
+    - Use tags to tag your resources.
+    - Configure tags for cost centres(such as by department, employee id etc)
+    - Activate cost allocation tags to track your costs by tags
+  
+### EC2 Pricing Models
+- On Demand
+    - Users that want the low cost and flexibility of amazon EC2 without any upfront payment or long term commitment.
+    - Application with short term, spiky, or unpredictable workloads that cannot be interrupted.
+    - Applications being developed or tested on Amazon EC2 for the first time.
+- Reserved
+    - Applications with steady state or predictable usage.
+    - Applications that require reserved capacity.
+    - Users able to make upfront payments to reduce their total computing costs even further
+      - Standard RI's (Up to 75% off on demand)
+      - Convertible RI's (Up to 54% off on demand) capability to change the attributes of the RI as long as the exchange results in the creation of reserved instances of equal or greater value.
+      - Scheduled RI's available to launch within the time windows your reserve. This option allows you to match your capacity reservation to a predicatble recurring schedule that only requires a fraction of a day, a week, or a month.  
+- Spot
+    -  Applications that have flexible start and end times
+    -  Applications that are only feasible at very low compute prices.
+    -  Users with urgent computing needs for large amounts of additional capacity.
+- Dedicated Hosts
+    - Useful for regulatory requirements that may not support multi-tenant virtualization.
+    - Great for licensing which doesn not support multi-tenancy or could deployments.
+    - Can be purchased On-Demand (hourly).
+    - Can be purchased as a reservation for up to 70% off the on-demand price.
+
+### AWS Config
+- AWS Config is a fully managed service that provides you with an AWS resource inventory, configuration history, and configuration change notifications to enable security and governance.
+   - Enables:
+      - Compliance auditing
+      - Security analysis
+      - Resource tracking
+  - Provides:
+      - Configuration snapshots and logs config changes of AWS resources
+      - Automated complaince checking   
+- Key components:
+   - Config dahsboard
+   - Config Rules
+      - Managed
+      - Custom
+   - Resources
+   - Settings   
+- Terminology:
+   - Configuration `Items`
+      - Point -in-time attributes of resource
+   - Configuration `snapshots` 
+      - Collection of config items
+   - Configuration `stream`
+      -  Stream of changes config items
+   - Configuration `History`
+      - Colelction of config items for a resource over time
+   - Configuration `Recorder`
+      - The configuration of config that records and stores config items.   
+      - Recorder Setup
+         - Logs config for account in region
+         - Store in S3
+         - Notifies SNS 
+- Compliance checks:
+   - Trigger
+       - Periodic
+       - Configuration snapshot delivery (filterable) 
+   - Managed Rules
+       - About 40 (at the time of recording)
+       - Basic, but fundamental 
