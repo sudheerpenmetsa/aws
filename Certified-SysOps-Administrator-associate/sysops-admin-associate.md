@@ -258,3 +258,8 @@
    - Managed Rules
        - About 125 (at the time of recording)
        - Basic, but fundamental 
+
+:sparkles: :sparkles: CloudWatch VS CloudTrail vs Config
+   - CloudWatch monitors performance.
+   - CloudTrail monitors API calls in the AWS platfrom.
+   - AWS Config records the state of your AWS environment and can notify you of changes.
