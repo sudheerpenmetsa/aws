@@ -253,5 +253,5 @@
        - Periodic
        - Configuration snapshot delivery (filterable) 
    - Managed Rules
-       - About 40 (at the time of recording)
+       - About 125 (at the time of recording)
        - Basic, but fundamental 
