@@ -1,6 +1,8 @@
 ## Documents:
 [Exam Blueprint](https://d1.awsstatic.com/training-and-certification/docs-sysops-associate/AWS%20Certified%20SysOps%20-%20Associate_Exam%20Guide_Sep18.pdf)
 
+[AWS exam preparation](https://aws.amazon.com/certification/certification-prep/?sc_icampaign=aware_certification_examprep_uppered_oct&sc_ichannel=ha&sc_icontent=awssm-6110_console-home&sc_iplace=console-home_oneup&trk=~ha_awssm-6110_console-home)
+
 [Initializing Amazon EBS volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-initialize.html)
 
 [Monitoring the status of your volumes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html)
@@ -147,10 +149,22 @@
         - There is no recommended setting. Choose a threshold based off your application.
         - Only Scale Out(add read replicas)  
   
-   :sparkles: :sparkles: Exam TIP, differenct approaches between Memcached and Redis
+   :sparkles: :sparkles: Exam TIP: differenct approaches between Memcached and Redis
 - Concurrent Connections:
    -  Memcached & Redis
         - There is no recommended setting. Choose a threshold based off your application.
         - If there is a large and sustained spike in the number of concurrent connections this can either mean a large traffic spike OR your appliction is not releasing connections as it should be
   
-   :sparkles: :sparkles: Remeber to set an alarm on the number of concurrent connections for elasticache.
+   :sparkles: :sparkles: Exam TIP :Remeber to set an alarm on the number of concurrent connections for elasticache.
+
+   :sparkles: :sparkles: `ClouWatch` dashboards are multi-region and can display any widget to any region. To add the widget, change to the region that you need and then add the widget to the dashboard.
+
+  ### AWS Organizations
+  
+   - AWS Organizations allows you to manage multiple AWS accounts at once. With Organizations, you can create groups of accounts and then apply policies to those groups.
+   - Centrally manage policies across multiple AWS accounts.
+   - Control Access to AWS services using `Service Control Policies (SCP)`.
+   - Automate AWS account creation and management.
+   - Consolidate billing across multiple aws accounts.
+  
+   ![Service control policies work](organizations.jpg)
