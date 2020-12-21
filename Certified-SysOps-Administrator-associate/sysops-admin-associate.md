@@ -109,7 +109,7 @@
    - `Request tracing` 
       - You can use request tracing to track HTTP requests from clients to targets or other services. When the load balancer receives a request from a client, it adds or updates the X-Amzn-Trace-Id header before sending the request to the target. ANy services or applications between the load balancer and the target can also add or update this header.`*Available for applications load balancer only*`
   
-      - `CloudTrail logs` 
+   - `CloudTrail logs` 
           - You can use AWS CloudTrail to capture detailed information about the calls made to the elastic load balancing API and store them as log files in Amazon S3.You can use these CLoudTrail logs to determine which calls were made the source IP address where the call came from, who made the call, when the call was made, and so on.
 
        :sparkles: :sparkles: **CloudWatch vs CloudTrail?**
@@ -259,7 +259,13 @@
        - About 125 (at the time of recording)
        - Basic, but fundamental 
 
-:sparkles: :sparkles: CloudWatch VS CloudTrail vs Config
+:sparkles: :sparkles: **CloudWatch VS CloudTrail vs Config**
    - CloudWatch monitors performance.
    - CloudTrail monitors API calls in the AWS platfrom.
    - AWS Config records the state of your AWS environment and can notify you of changes.
+### Health Dashboard
+- There are two types of Health Dashboards
+   - [Service Health Dashboard]((status.aws.amazon.com) ) 
+      - Shows the health of each AWS Service as a whole per region. 
+   - [Personal Health Dashboard](https://phd.aws.amazon.com/phd/home#/dashboard/open-issues)
+      - AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you.
