@@ -1,0 +1,15 @@
+## IAM Reports : 
+- We can generate and download a credential report that lists all user in our account
+   - Passwords
+       - whether password is enabled
+       - when the password last used
+       - when the password last changed
+       - when the password must next be changed
+   -  Access Keys
+       - Whether an access key is active
+       - When the access key was last used
+       - when the access key was last rotated
+       - what service the access key was last used on
+  - MFA
+      - whether MFA has been enabled  
+- Route in console : Services --> IAM --> Credential report(left pane)
