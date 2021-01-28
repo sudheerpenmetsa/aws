@@ -416,3 +416,11 @@ AWS help you to calculate your costs using a couple of different calculators.
 Available in two features sets:
 * AWS simple monthly calculator
 * AWS total cost of ownership calculator
+
+## IAM
+- IAM Best Practices
+  - Root Account: Only use the root account to create your AWS account. Do not use it to login
+  - Users: One user should equal one real human being. Dont create phanton users
+  - Users/Groups/Policies : Always place users in groups, and then apply policies to the groups. This makes management easier.
+  - Roles: Use roles to access other AWS services
+  - IAM credential report : Use IAM credential reports to audit the permissions of your users/accounts.

@@ -271,3 +271,4 @@
       - AWS Personal Health Dashboard provides alerts and remediation guidance when AWS is experiencing events that may impact you.
 
 ## Deployment and Provisioning
+- Deploy An EC2 Instance
