@@ -45,7 +45,7 @@
 ![](NACL.jpg)
 
  ### Internet Gateway:
- - Internet gateway is a entitiy which allows routr from VPC to outside internet
+ - Internet gateway is a entitiy which allows route from VPC to outside internet
  - Only one Internet Gateway can be atatched to VPC
  ### Route Table:
 - Controls routing of outgoing network requests.
@@ -65,4 +65,4 @@
 
 ![](NAT-Gateway.jpg)
 
-## Setup VPC
+
